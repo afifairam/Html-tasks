@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Admission Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var patientName = document.forms["admissionForm"]["patientName"].value;
+            var patientAge = document.forms["admissionForm"]["patientAge"].value;
+            
+            if (patientName == "" || patientAge == "") {
+                alert("All fields are required!");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Hospital Admission Form</h1>
+    <form name="admissionForm" action="submit.php" method="post" onsubmit="return validateForm()">
+        <label for="patientName">Patient Name:</label>
+        <input type="text" id="patientName" name="patientName" required>
+        <br>
+        <label for="patientAge">Patient Age:</label>
+        <input type="number" id="patientAge" name="patientAge" required>
+        <br>
+        <label for="patientGender">Patient Gender:</label>
+        <select id="patientGender" name="patientGender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <br>
+        <label for="patientCondition">Patient Condition:</label>
+        <textarea id="patientCondition" name="patientCondition" rows="4" cols="50"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>
